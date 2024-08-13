@@ -1,35 +1,37 @@
 <html>
-  <head>
+<head>
     <title>This is the home page</title>
-  </head>
-  <body>
-    <h1>This is HACKOGI</h1>
-    <div>
-      <h2>Active Hackathons</h2>
-      {% for hackathon in active_hackathons %}
-      <h3>{{ hackathon.title }}</h3>
-      <p>{{ hackathon.overview }}</p>
-      {% endfor %}
-    </div>
+</head>
+<body>
+{% include 'header.html' %}
 
-    <hr />
-    
-    <div>
-      <h2>Upcaming Hackathons</h2>
-      {% for hackathon in upcame_hackathons %}
-      <h3>{{ hackathon.title }}</h3>
-      <p>{{ hackathon.overview }}</p>
-      {% endfor %}
-    </div>
+<h1>This is HACKOGI</h1>
+<div>
+    <h2>Active Hackathons</h2>
+    {% for hackathon in active_hackathons %}
+    <h3>{{ hackathon.title }}</h3>
+    <p>{{ hackathon.overview }}</p>
+    {% endfor %}
+</div>
 
-    <hr>
+<hr/>
 
-    <div>
-      <h2>Past Hackathons</h2>
-      {% for hackathon in past_hackathons %}
-      <h3>{{ hackathon.title }}</h3>
-      <p>{{ hackathon.overview }}</p>
-      {% endfor %}
-    </div>
-  </body>
+<div>
+    <h2>Upcaming Hackathons</h2>
+    {% for hackathon in upcame_hackathons %}
+    <h3>{{ hackathon.title }}</h3>
+    <p>{{ hackathon.overview }}</p>
+    {% endfor %}
+</div>
+
+<hr>
+
+<div>
+    <h2>Past Hackathons</h2>
+    {% for hackathon in past_hackathons %}
+    <h3>{{ hackathon.title }}</h3>
+    <p>{{ hackathon.overview }}</p>
+    {% endfor %}
+</div>
+</body>
 </html>

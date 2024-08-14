@@ -1,8 +1,6 @@
-{% include 'header.html' %}
-
-<h1>
-    Sign up
-</h1>
+{% extends 'base.html' %}
+{% block title %} Register Page {% endblock title %}
+{% block content %}
 
 <form method="POST">
     {% csrf_token %}
@@ -10,3 +8,5 @@
     <button type="submit">SignUp</button>
     <a href="{% url 'accounts:login' %}">Already have account?</a>
 </form>
+
+{% endblock content %}

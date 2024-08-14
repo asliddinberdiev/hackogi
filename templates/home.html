@@ -1,9 +1,6 @@
-<html>
-<head>
-    <title>This is the home page</title>
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block title %} Home Page {% endblock title %}
+{% block content %}
 
 <h1>This is HACKOGI</h1>
 <div>
@@ -33,5 +30,5 @@
     <p>{{ hackathon.overview }}</p>
     {% endfor %}
 </div>
-</body>
-</html>
+
+{% endblock content %}

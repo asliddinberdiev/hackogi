@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Event
+from .models import Event, Idea
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -12,4 +12,10 @@ class EventAdmin(admin.ModelAdmin):
         'is_approved',
     )
 
+
+class IdeaAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Event, EventAdmin)
+admin.site.register(Idea, IdeaAdmin)

@@ -38,18 +38,27 @@
                 <form method="post" action="{% url 'events:create-idea' event.id %}">
                     {% csrf_token %}
                     {{ idea_form.as_p }}
-
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             {% endif %}
-            {% for idea in event.ideas.all %}
+
+            {% for idea in ideas %}
             <div id="ideas-list" class="row">
+                <form id="upvote-idea-{{ idea.id }}" method="post" type="hidden"
+                      action="{% url 'events:upvote-idea' event.id idea.id %}">
+                    {% csrf_token %}
+                </form>
                 <div class="col-md-6 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ idea.title }}</h5>
-
+                            {% if idea.is_liked %}
+                            <i role="button" class="fa-solid fa-heart"></i>
+                            {% else %}
+                            <i role="button" class="fa-regular fa-heart" onclick="upvoteIdea({{ idea.id }})"></i>
+                            {% endif %}
+                            <span class="badge text-bg-secondary">{{ idea.upvotes.count }}</span>
                             <p class="card-text">{{ idea.overview }}</p>
                         </div>
                     </div>
